@@ -1,0 +1,119 @@
+{% include 'publicheader.html' %}
+     
+
+
+ <div class="testimonials parallax-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 text-center">
+                        <div class="flexslider testislider">
+                            <ul class="slides">
+                                <li>
+                                    <div class="slide-items">
+<!--                                         <img src="/static/images/team-1.jpg" alt="">
+ -->                          
+
+
+
+<script >
+    var check = function() {
+  if (document.getElementById('password').value ==
+    document.getElementById('confirm_password').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'matching';
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'not matching';
+  }
+}
+</script>
+                     
+                            
+                            <br><br><br><br><br>  
+
+                <form method="post" style="width: 50vw; margin-left: 9vw;" enctype="multipart/form-data">
+        <center>
+             <h1 style="color: white"> Client Registration</h1>
+    
+    <table class="table" style="width: 600px ;color: white">
+            <tr>
+                <th>First Name</th>
+                <td><input type="text" name="f" required class="form-control"></td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td><input type="text" name="l" required class="form-control"></td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td><input type="text" pattern="[0-9]{10}" name="s" required class="form-control"></td>
+            </tr>
+            <tr>
+                <th>Place</th>
+                <td><input type="text" name="pl" required class="form-control"></td>
+            </tr>
+            
+            <tr>
+                <th>Email</th>
+                <td><input type="email" name="e" pattern=".+@gmail\.com" required class="form-control"></td>
+            </tr>
+             
+            <tr>
+                <th>DOB</th>
+                <td><input type="date" name="a" required class="form-control" max="{{data['today']}}"></td>
+            </tr>
+             
+            <tr>
+                <th>Address</th>
+                <td><input type="text" name="hn" required class="form-control"></td>
+            </tr>
+             <tr>
+                <th>Profile Photo</th>
+                <td><input type="file" name="i" required class="form-control"></td>
+            </tr>
+             <tr>
+                <th>ID Upload</th>
+                <td><input type="file" name="ii" required class="form-control"></td>
+        
+            </tr>
+
+ 
+        <tr>
+            <th>Username</th>
+            <td><input type="text" required="" class="form-control" name="u"></td>
+        </tr>
+            <tr>
+            <th>password</th>
+            <td><input type="password" id="password" required="" class="form-control" name="password" onkeyup='check();'></td>
+            <tr> 
+             <tr>
+            <th>confirm password</th>
+            <td><input type="password" id="confirm_password" required="" class="form-control" name="confirm_password" onkeyup='check();' >
+                    <span class="btn btn-info" id='message'></span>
+            </td>
+
+        </tr>
+            <tr>
+
+                <td align="center" colspan="2"><input type="submit" name="register" value="ADD" class="btn btn-success"></td>
+            </tr>
+        </table>
+        </center>
+    </form>
+         
+ </div>
+                                </li>
+                               
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--testimonials-->
+
+   
+    
+                                
+
+{% include'footer.html' %}

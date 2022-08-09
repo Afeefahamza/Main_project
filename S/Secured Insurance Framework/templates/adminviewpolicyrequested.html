@@ -1,0 +1,54 @@
+{% include 'adminheader.html'%}
+
+
+
+<form method="post">
+
+
+<center>
+
+    <h1 style="color: white">View  Appiled Clients</h1>
+                                         <br><br>
+
+    <table class="table" style="width: 1000px;color: #000 !important">
+       <tr>
+
+            <th>slno</th>
+            <th>Client Name</th>
+            <th>Policy</th>
+            <th>Sum Assurance</th>
+            <th>Premium </th>
+            <th>Appiled Date</th>
+            <th>ID Proof</th>
+            <th>status</th>
+        </tr>
+        {% for row in data['user']%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{row['fname']}} {{row['lname']}}</td>
+            <td>{{row['policy']}}</td>
+            <td>{{row['sum_assured']}}</td>
+            <td>{{row['premium']}}</td>
+            <td>{{row['date']}}</td>
+            <td><a class="btn btn-info" href="/{{row['id_proof']}}">view ID Proof</a></td>
+ {%if row['status']=="pending"%}
+ <td><a class="btn btn-success" href="?action=accept&request_id={{row['request_id']}}">Accept</a>
+ <td><a class="btn btn-danger" href="?action=reject&request_id={{row['request_id']}}">Reject</a>
+{%else%}
+        <td>{{row['status']}}</td>
+
+      {%endif%}
+      
+          </tr>  
+      {%endfor%}
+
+    </table>
+       
+    </center>
+                                     <br><br><br><br>
+                                     <br><br><br><br>
+</form>
+
+
+
+{% include 'footer.html'%}

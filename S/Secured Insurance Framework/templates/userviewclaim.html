@@ -1,0 +1,40 @@
+{% include 'adminheader.html'%}
+
+
+
+<form method="post">
+
+
+<center>
+
+    <h1 style="color: white">View   Claim</h1>
+                                         <br><br>
+
+    <table class="table" style="width: 800px;color: #000 !important">
+       <tr>
+
+            <th>slno</th>
+            <th>Policy Name</th>
+            <th>Sum Assurance </th>
+            <th>status</th>
+        </tr>
+        {% for row in data['user']%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{row['policy']}}</td>
+            <td>{{row['sum_assured']}}</td>
+            <td>{{row['status']}}</td>
+
+          </tr>  
+      {%endfor%}
+
+    </table>
+       
+    </center>
+                                     <br><br><br><br>
+                                     <br><br><br><br>
+</form>
+
+
+
+{% include 'footer.html'%}

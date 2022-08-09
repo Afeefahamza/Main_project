@@ -1,0 +1,44 @@
+{% include 'adminheader.html'%}
+
+
+
+<form method="post">
+
+
+<center>
+
+    <h1 style="color: white">View  Client</h1>
+                                         <br><br>
+
+    <table class="table" style="width: 800px;color: #000 !important">
+       <tr>
+
+            <th>slno</th>
+            <th>Client</th>
+            <th>Policy</th>
+            <th>Appiled Date</th>
+            <th>status</th>
+        </tr>
+        {% for row in data['user']%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{row['fname']}} {{row['lname']}}</td>
+            <td>{{row['policy']}}</td>
+            <td>{{row['date']}}</td>
+ 
+ <td><a class="btn btn-info" href="adminviewpayments?user_id={{row['user_id']}}">View payment</a>
+
+      
+          </tr>  
+      {%endfor%}
+
+    </table>
+       
+    </center>
+                                     <br><br><br><br>
+                                     <br><br><br><br>
+</form>
+
+
+
+{% include 'footer.html'%}

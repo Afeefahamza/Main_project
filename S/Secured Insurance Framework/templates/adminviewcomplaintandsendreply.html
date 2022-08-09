@@ -1,0 +1,43 @@
+{% include 'adminheader.html'%}
+
+
+
+<form method="post">
+<center>
+                                     
+        <h1 style="color: white">View Queries</h1>
+
+
+
+    <table class="table" style="width: 800px;color: #000 !important">
+            <tr>
+                <th>User Name</th>
+                <th> Queries</th>
+                <th> Reply</th>
+                <th>Date</th>
+            </tr>
+            {% for row in data['complaints']%}
+            <tr>
+                <td>{{row['fname']}} {{row['lname']}}</td>
+                <td>{{row['complaint']}}</td>
+                {% if row['reply']=="reply-pending"%}
+            <td><a class="btn btn-success" href="adminsendreply?cid={{row['complaint_id']}}">reply</a></td>
+                    {% else %}
+                <td>{{row['reply']}}</td>
+                {%endif%}
+                <td>{{row['date']}}</td>
+            </tr>
+            {% endfor%}
+        </table>
+
+       
+    </center>
+</form>
+
+         
+                            <br><br>
+                            <br><br>
+                            <br><br>
+                            <br><br>
+
+{% include 'footer.html'%}

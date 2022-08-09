@@ -1,0 +1,45 @@
+{% include 'userheader.html'%}
+
+
+
+<form method="post">
+
+
+<center>
+
+    <h1 style="color: white">View  Appiled Policy</h1>
+                                         <br><br>
+
+    <table class="table" style="width: 800px;color: #000 !important">
+       <tr>
+
+            <th>slno</th>
+            <th>Policy</th>
+            <th>Appiled Date</th>
+            <th>status</th>
+        </tr>
+        {% for row in data['user']%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{row['policy']}}</td>
+            <td>{{row['date']}}</td>
+ {%if row['status']=="accept" %}
+ <td><a class="btn btn-info" href="usermakepayment?policy_id={{row['policy_id']}}&premium={{row['premium']}}">make payment</a>
+{%else%}
+        <td>{{row['status']}}</td>
+
+      {%endif%}
+      
+          </tr>  
+      {%endfor%}
+
+    </table>
+       
+    </center>
+                                     <br><br><br><br>
+                                     <br><br><br><br>
+</form>
+
+
+
+{% include 'footer.html'%}

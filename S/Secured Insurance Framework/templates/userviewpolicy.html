@@ -1,0 +1,42 @@
+{% include 'userheader.html'%}
+
+
+
+                                      
+                            
+                            <br><br><br><br>
+<form method="post">
+<center>
+
+
+                <center>
+                  <h1>View Policy</h1>
+    <table class="table" style="width: 1000px;color: #000 !important">
+        <tr>
+            <th>Policy</th>
+
+            <th>Category</th>
+
+            <th>Sum Assurance</th>
+            <th>Premium </th>
+            <th>Tenure </th>
+
+
+        </tr>
+        {% for row in data['pdt']%}
+        <tr>
+            <td>{{row['policy']}}</td>
+        <td>{{row['category']}}</td>
+        <td>{{row['sum_assured']}}</td>
+        <td>{{row['premium']}}</td>
+        <td>{{row['tenure']}}</td>
+<td><a class="btn btn-warning" href="?action=request&policy_id={{row['policy_id']}}">APPLY</a></td>   
+ 
+    </tr>  
+      {%endfor%}
+
+    </table></center>
+              </div>              
+                
+
+{% include 'footer.html'%}

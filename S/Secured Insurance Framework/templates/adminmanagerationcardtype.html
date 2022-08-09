@@ -1,0 +1,104 @@
+{% include 'admin_header.html'%}
+
+
+
+ <div class="testimonials parallax-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 text-center">
+                        <div class="flexslider testislider">
+                            <ul class="slides">
+                                <li>
+                                    <div class="slide-items">
+<!--                                         <img src="/static/images/team-1.jpg" alt="">
+ -->                                      
+                            
+                            <br><br><br><br>
+<form method="post">
+<center>
+
+
+
+
+    {% if data['updatetype']%}
+ <h1 style="color: white"> Update Manage Ration Card Type</h1>
+    
+    <table class="table" style="width: 600px ;color: white">
+        <tr>
+            <th>Type</th>
+            <td><input type="text" required="" class="form-control" name="t"value="{{data['updatetype'][0]['type']}}"></td>
+        </tr>
+        <tr>
+            <th>Details</th>
+            <td><input type="text" required="" class="form-control" name="d"value="{{data['updatetype'][0]['details']}}"></td>
+        </tr>
+      
+        <tr>
+            <td colspan="2" align="center"><input type="submit" class="btn btn-success" name="update" value="UPDATE"></td>
+        </tr>
+
+    </table>
+    {%else%}
+        <h1 style="color: white">Manage Ration Card Type</h1>
+    
+    <table class="table" style="width: 600px ;color: white">
+       
+        <tr>
+            <th>Type</th>
+            <td><input type="text" required="" class="form-control" name="t"></td>
+        </tr>
+        <tr>
+            <th>Details</th>
+            <td><input type="text" required="" class="form-control" name="d"></td>
+        </tr>
+       
+        <tr>
+            <td colspan="2" align="center"><input type="submit" class="btn btn-success" name="add" value="ADD"></td>
+        </tr>
+
+    </table>
+    {%endif%}
+    
+    </center>
+</form>
+
+
+
+
+
+</div>
+                                </li>
+                               
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--testimonials-->
+
+              <div class="container" style="margin-top: 2em;margin-bottom: 2em">
+                <center>
+                  <h1 style="color: #000">View Ration Card Type</h1>
+    <table class="table" style="width: 1800px;color: #000 !important">
+        <tr>
+            <th>Type</th>
+
+            <th>Details</th>
+
+
+        </tr>
+        {% for row in data['type']%}
+        <tr>
+            <td>{{row['type']}}</td>
+        <td>{{row['details']}}</td>
+<td><a class="btn btn-danger" href="?action=delete&tid={{row['type_id']}}">delete</a></td>   
+<td><a class="btn btn-warning" href="?action=update&tid={{row['type_id']}}">update</a></td> 
+    </tr>  
+      {%endfor%}
+
+    </table></center>
+              </div>              
+                
+
+{% include 'footer.html'%}

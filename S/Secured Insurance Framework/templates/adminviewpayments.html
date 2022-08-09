@@ -1,0 +1,40 @@
+{% include 'adminheader.html'%}
+
+
+
+<form method="post">
+
+
+<center>
+
+    <h1 style="color: white">View  Payments</h1>
+                                         <br><br>
+
+    <table class="table" style="width: 800px;color: #000 !important">
+       <tr>
+            <th>Client Name</th>
+            <th>Policy</th>
+
+            <th>Premium</th>
+
+            <th>Date</th>
+        </tr>
+        {% for row in data['view']%}
+        <tr>
+        <td>{{data['uname']}}</td>
+        <td>{{data['pol']}}</td>
+        <td>{{row['amount']}}</td>
+        <td>{{row['date']}}</td>
+        </tr>  
+      {%endfor%}
+
+    </table>
+       
+    </center>
+                                     <br><br><br><br>
+                                     <br><br><br><br>
+</form>
+
+
+
+{% include 'footer.html'%}

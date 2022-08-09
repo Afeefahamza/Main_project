@@ -1,0 +1,40 @@
+{% include 'userheader.html'%}
+
+
+
+<form method="post">
+
+
+<center>
+
+    <h1 style="color: white">View  Payments</h1>
+                                         <br><br>
+
+    <table class="table" style="width: 800px;color: #000 !important">
+       <tr>
+
+            <th>slno</th>
+            <th>Policy</th>
+            <th>amount</th>
+            <th>Paid Date</th>
+        </tr>
+        {% for row in data['view']%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{data['pname']}}</td>
+            <td>{{row['amount']}}</td>
+            <td>{{row['date']}}</td>
+            <td><a class="btn btn-warning"  href="generatedoc?p_id={{row['p_id']}}">generate</a></td>
+        </tr>  
+      {%endfor%}
+
+    </table>
+       
+    </center>
+                                     <br><br><br><br>
+                                     <br><br><br><br>
+</form>
+
+
+
+{% include 'footer.html'%}

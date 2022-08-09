@@ -1,0 +1,63 @@
+{% include 'adminheader.html' %}
+    
+
+
+ <style type="text/css">
+        td{background-color: transparent;font-weight: 2px;color: black}
+        hr{border-color: orange}
+        #b {
+            border: 1px solid grey; 
+            padding: 10px;
+        }
+    </style>
+
+
+
+<center>
+    <form method="post" style="margin-top: 70px">
+
+        <header class="section-header">
+
+        <h1 style="color: white">Make Payment</h1>
+        <br><br>
+            <table style="width: 500px;color: white" class="table table-borderless" id="b"> 
+            <tr> 
+                    <td style="color: white">PAYMENT DETAILS</td> 
+                    <td><img src="/static/credit_card.png" style="width:100%"/></td>
+
+                </tr>
+                <tr> 
+                    <td colspan="2" style="color: white"> <small>CARD NUMBER</small><br> 
+                        <input type="text" placeholder="Enter a valid card number"  class="form-control" style="height: 40px;font-size: 17px;"  pattern="[0-9]{16}" title="Enter 16 digit Card number">
+                    </td> 
+                </tr>
+                <tr> 
+
+                    <td style="color: white" > <small>CVV</small><br> 
+                        <input type="password" placeholder="CVV" class="form-control" style="height: 40px;font-size: 17px;"  pattern="[0-9]{3}" title="Enter 3 digit CV number">
+                    </td> 
+                    <td style="color: white"> <small>EXPIRATION DATE</small><br> 
+                        <input type="text" placeholder="MM/YY"  class="form-control" style="height: 40px;font-size: 17px;"  pattern="[0-9/]{5}" title="Enter expiry date"> 
+                    </td>
+
+
+                </tr>
+                <tr> 
+                    <td colspan="2" style="color: white"> <small>CARD HOLDER</small><br> 
+                        <input type="text" placeholder="Name on card"  class="form-control" style="height: 40px;font-size: 17px;" data-valid='only-text'  > </td>
+                    </tr>
+                    <tr><td colspan="2" style="color: white"> <small>AMOUNT</small><br>
+                    
+                     <input type="text" value="{{data['sum_assured']}}"  name="a" class="form-control" style="height: 40px;font-size: 17px;" placeholder="Amount"></td></tr>
+                            
+                    <tr> 
+                            <td colspan="2"> 
+                                <input type="submit" value="PAY"  class="btn btn-success" style="width: 100%" name="payment"> </td>
+                            </tr>
+        </table>
+        
+</form>
+<br><br><br><br>
+</center>
+
+{% include 'footer.html' %}

@@ -1,0 +1,111 @@
+{% include 'adminheader.html'%}
+
+
+
+                                      
+                            
+                            <br><br><br><br>
+<form method="post">
+<center>
+
+
+
+
+    {% if data['updates']%}
+ <h1 style="color: white"> Update Manage Policy</h1>
+    
+    <table class="table" style="width: 600px ;color: white">
+        <tr>
+            <th>Policy</th>
+            <td><input type="text"  required="" class="form-control" name="p"value="{{data['updates'][0]['policy']}}"></td>
+        </tr>
+        <tr>
+            <th>Category</th>
+            <td><input type="text" required="" class="form-control" name="d"value="{{data['updates'][0]['category']}}"></td>
+        </tr>
+      <tr>
+            <th>Sum Assurance</th>
+            <td><input type="text" required="" class="form-control" name="a"value="{{data['updates'][0]['sum_assured']}}"></td>
+        </tr>
+    <tr>
+            <th>Premium </th>
+            <td><input type="text" required="" class="form-control" name="pr" value="{{data['updates'][0]['premium']}}"></td>
+        </tr>
+        <tr>
+            <th>Tenure </th>
+            <td><input type="text" required="" class="form-control" name="t" value="{{data['updates'][0]['tenure']}}"></td>
+        </tr>        <tr>
+            <td colspan="2" align="center"><input type="submit" class="btn btn-success" name="update" value="UPDATE"></td>
+        </tr>
+
+    </table>
+    {%else%}
+        <h1 style="color: white">Manage Policy</h1>
+    
+    <table class="table" style="width: 600px ;color: white">
+       
+        <tr>
+            <th>Policy</th>
+            <td><input type="text" required="" class="form-control" name="p"></td>
+        </tr>
+        <tr>
+            <th>Category</th>
+            <td><input type="text" required="" class="form-control" name="d"></td>
+        </tr>
+       <tr>
+            <th>Sum Assurance</th>
+            <td><input type="text" required="" class="form-control" name="a"></td>
+        </tr>
+        <tr>
+            <th>Premium </th>
+            <td><input type="text" required="" class="form-control" name="pr"></td>
+        </tr>
+        <tr>
+            <th>Tenure </th>
+            <td><input type="text" required="" class="form-control" name="t"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" class="btn btn-success" name="add" value="ADD"></td>
+        </tr>
+
+    </table>
+    {%endif%}
+    
+    </center>
+</form>
+
+
+
+             
+                <center>
+                  <h1>View Policy</h1>
+    <table class="table" style="width: 1000px;color: #000 !important">
+        <tr>
+            <th>Policy</th>
+
+            <th>Category</th>
+
+            <th>Sum Assurance</th>
+            <th>Premium </th>
+            <th>Tenure </th>
+
+
+        </tr>
+        {% for row in data['pdt']%}
+        <tr>
+            <td>{{row['policy']}}</td>
+        <td>{{row['category']}}</td>
+        <td>{{row['sum_assured']}}</td>
+        <td>{{row['premium']}}</td>
+        <td>{{row['tenure']}}</td>
+<td><a class="btn btn-danger" href="?action=delete&pid={{row['policy_id']}}">delete</a></td>   
+<td>
+        <a class="btn btn-warning" href="?action=update&pid={{row['policy_id']}}">update</a></td> 
+    </tr>  
+      {%endfor%}
+
+    </table></center>
+              </div>              
+                
+
+{% include 'footer.html'%}

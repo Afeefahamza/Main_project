@@ -1,0 +1,54 @@
+{% include 'adminheader.html'%}
+
+
+
+<form method="post">
+
+
+<center>
+
+    <h1 style="color: white">View   Claim</h1>
+                                         <br><br>
+
+    <table class="table" style="width: 800px;color: #000 !important">
+       <tr>
+
+            <th>slno</th>
+            <th>Client Name</th>
+            <th>Certificate of Proof</th>
+            <th>Policy Document</th>
+            <th>ID Proof </th>
+            <th>status</th>
+        </tr>
+        {% for row in data['user']%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{row['fname']}} {{row['lname']}}</td>
+            <td><a class="btn btn-primary" href="/{{row['cert_of_proof']}}">Certificate of Proof</a></td>
+            <td><a class="btn btn-info" href="/{{row['policy_doc']}}">Policy Document</a></td>
+            <td><a class="btn btn-success" href="/{{row['id_proof']}}">ID Proof </a></td>
+           
+ {%if row['status']=="pending"%}
+ <td><a class="btn btn-success" href="?action=accept&claim_id={{row['claim_id']}}&user_id={{row['user_id']}}&policy_id={{row['policy_id']}}">Accept</a>
+ <td><a class="btn btn-danger" href="?action=reject&claim_id={{row['claim_id']}}&user_id={{row['user_id']}}&policy_id={{row['policy_id']}}">Reject</a>
+   {%elif row['status']=="accept"%}
+ <td><a class="btn btn-info" href="adminmakepayment?policy_id={{row['policy_id']}}&user_id={{row['user_id']}}&claim_id={{row['claim_id']}}&sum_assured={{row['sum_assured']}}">make payment</a>
+
+{%else%}
+        <td>{{row['status']}}</td>
+
+      {%endif%}
+      
+          </tr>  
+      {%endfor%}
+
+    </table>
+       
+    </center>
+                                     <br><br><br><br>
+                                     <br><br><br><br>
+</form>
+
+
+
+{% include 'footer.html'%}
